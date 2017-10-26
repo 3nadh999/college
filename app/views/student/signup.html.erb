@@ -1,16 +1,22 @@
 <body bgcolor="#E6E6FA">
-<p><h1>Registration Form</h1></p>
-<%= form_tag do %>
+<center><p><h1>Student Registration Form</h1></p></center>
+<%= form_tag action:"login" do %>
 
-<table align="left" , border="6" >
+<table align="center" , border="6" >
 
 <tr><td>First Name</td><td> <%= text_field_tag 'a', nil, minlength: 3 , maxlength: 15,size:26 %></td></tr>
 <tr><td>Last Name</td><td><%= text_field_tag 'b', nil, minlength: 3 , maxlength: 15 ,size:26%></td> </tr>
 <tr><td>Email</td><td><%= email_field_tag 'c', 'email@example.com' ,size:26%></td></tr>
-<tr><td>Age</td><td><%= number_field_tag 'd', nil, in: 14...100 ,size:26%></td></tr>
+<tr><td>DOB</td><td> <%= date_field_tag 'd'%> </td></tr>
 <tr><td>Gender</td><td><%= radio_button_tag 'e', 'male'%> Male <%=radio_button_tag 'e', 'female'%>Female</td></tr>
 
 <tr><td>Phone number  </td><td><%= telephone_field_tag 'f', '0123456789',size:26 %></td></tr>
+<tr><td>Hobbies</td> 
+						<td><%= check_box_tag 'k[]' , 'cricket'%>cricket
+							<%= check_box_tag 'k[]' , 'football'%>football
+							<%= check_box_tag 'k[]' , 'volleyball'%>volleyball
+							<%= check_box_tag 'k[]' , 'basketball'%>basketball
+						</td></tr>
 
 <tr ><td style="padding-bottom: 65px">Address</td><td> <%= text_area_tag 'g', nil, size: "25x6" %></td></tr>
 
@@ -18,17 +24,6 @@
 </table> 
 <% end %>
 
-<table align="center" , bgcolor="BEC6D3" , width="400", >
-<th>Entered Data </th>
-
-<tr><td height="35">First name   </td><td height="35"><%= @a%></td> </tr>
-<tr><td height="35">Last name     </td><td height="35"> <%= @b%> </td></tr>
-<tr><td height="35">Email id      </td><td height="35"> <%= @c%></td></tr> 
-<tr><td height="35">Age           </td><td height="35"> <%= @d%></td></tr>
-<tr><td height="35">Gender        </td><td height="35"> <%= @e%></td></tr> 
-<tr><td height="35">Phone number  </td><td height="35"> <%= @f%></td></tr> 
-<tr><td height="35">Address      </td><td height="35">  <%= @g%></td></tr>
-</table> 
 
 <style>
 #add{
